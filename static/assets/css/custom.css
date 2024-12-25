@@ -1,0 +1,40 @@
+/*
+Custom Css
+*/
+
+
+.montserrat {
+  font-family: "Montserrat", serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.box-shadow1:hover{
+  opacity: 1;
+  -webkit-box-shadow: 12px 8px 18px 0px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 12px 8px 18px 0px rgba(34, 60, 80, 0.2);
+  box-shadow: 12px 8px 18px 0px rgba(34, 60, 80, 0.2);
+  transition: 1s;
+  background: #f3f3f3;
+  border-radius: 10px;
+}
+
+.box-shadow2:hover{
+  -webkit-box-shadow: 13px 12px 22px 0px rgba(112,106,112,0.77);
+-moz-box-shadow: 13px 12px 22px 0px rgba(112,106,112,0.77);
+box-shadow: 13px 12px 22px 0px rgba(112,106,112,0.77);
+  border-radius: 10px;
+  transition: all.1s ease;
+}
+
+.box-shadow2{
+  transition: all.1s ease;
+}
+
+.btn-rd{
+  border-radius: 5px;
+}
+.font-w-700{
+  font-weight: 700;
+}
