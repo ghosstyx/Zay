@@ -33,7 +33,7 @@
                                     <h6>Brand:</h6>
                                 </li>
                                 <li class="list-inline-item">
-                                    <p class="text-muted"><strong>Easy Wear</strong></p>
+                                    <p class="text-muted"><strong>{{ cardb.brand }}</strong></p>
                                 </li>
                             </ul>
 
@@ -44,20 +44,19 @@
                                     <h6>Avaliable Color :</h6>
                                 </li>
                                 <li class="list-inline-item">
-                                    <p class="text-muted"><strong>White / Black</strong></p>
+                                    <p class="text-muted">
+                                    {% for item in cardb.colors.all %}
+                                        <strong>{{ item.color }} / </strong>
+                                    {% endfor %}    
+                                    </p>
                                 </li>
                             </ul>
                             <h6>Specification:</h6>
                             <ul class="list-unstyled pb-3">
-                                <li>Lorem ipsum dolor sit</li>
-                                <li>Amet, consectetur</li>
-                                <li>Adipiscing elit,set</li>
-                                <li>Duis aute irure</li>
-                                <li>Ut enim ad minim</li>
-                                <li>Dolore magna aliqua</li>
-                                <li>Excepteur sint</li>
+                            {% for item in cardb.color.all %}
+                                <li>{{ item.color }} : ${{ item.price }}</li>
+                            {% endfor %}
                             </ul>
-
                             <form action="" method="GET">
                                 <input type="hidden" name="product-title" value="Activewear">
                                 <div class="row">

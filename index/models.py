@@ -26,6 +26,7 @@ class CardBodies(models.Model):
     sizes = models.CharField(max_length=255, verbose_name="Sizes")
     price = models.FloatField(verbose_name="Price")
     date = models.DateField(verbose_name="Date")
+    brand = models.CharField(max_length=255, verbose_name="Brand")
 
     def __str__(self):
         return self.title
@@ -44,5 +45,25 @@ class Album(models.Model):
         return self.photo_caption
 
     class Meta:
-        ordering = ['photo_caption']
+        ordering = ['photo_id']
 
+class ColorChoice(models.Model):
+    color = models.CharField(max_length=255, verbose_name="Color")
+    price = models.FloatField(verbose_name="Price")
+    color_id = models.IntegerField(auto_created=True,verbose_name="Color ID")
+    cardbody = models.ForeignKey(CardBodies, on_delete=models.CASCADE, related_name="color")
+
+    def __str__(self):
+        return self.color
+
+    class Meta:
+        ordering = ['color_id']
+
+class AvailableColors(models.Model):
+    color = models.CharField(max_length=255, verbose_name="Color")
+    color_id = models.IntegerField(auto_created=True,verbose_name="Color ID")
+    cardbody = models.ForeignKey(CardBodies, on_delete=models.CASCADE, related_name="colors")
+    def __str__(self):
+        return self.color
+    class Meta:
+        ordering = ['color_id']
