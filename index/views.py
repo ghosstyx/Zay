@@ -28,6 +28,7 @@ def about(request):
     return render(request, 'about.html')
 def contact(request):
     return render(request, 'contact.html')
+
 def shop(request):
     cardbodies = CardBodies.objects.all()
     context = {'cardbodies': cardbodies}
@@ -38,4 +39,5 @@ def shopsingle(request, id):
     cardbodies = CardBodies.objects.all()
     cardb = get_object_or_404(CardBodies, id=id)
     context = {'cardbodies': cardbodies, 'cardb': cardb}
+    # print(cardb.albums.all())
     return render(request, 'shop-single.html', context=context)

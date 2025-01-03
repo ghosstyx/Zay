@@ -25,10 +25,24 @@ class CardBodies(models.Model):
     title = models.CharField(max_length=255, verbose_name="Title")
     sizes = models.CharField(max_length=255, verbose_name="Sizes")
     price = models.FloatField(verbose_name="Price")
-    photo = models.FileField(upload_to="cards/", verbose_name="Photo")
     date = models.DateField(verbose_name="Date")
-    
+
+    def __str__(self):
+        return self.title
 
     class Meta:
         verbose_name = "Card Body"
         verbose_name_plural = "Card Bodies"
+
+class Album(models.Model):
+    photo = models.FileField(upload_to="albums/", verbose_name="Photo")
+    photo_caption = models.TextField(verbose_name="Photo Caption")
+    photo_id = models.IntegerField(auto_created=True, verbose_name="Photo ID")
+    cardbody = models.ForeignKey(CardBodies, on_delete=models.CASCADE, related_name="albums")
+
+    def __str__(self):
+        return self.photo_caption
+
+    class Meta:
+        ordering = ['photo_caption']
+
